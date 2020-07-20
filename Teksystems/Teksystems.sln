@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teksystems", "Teksystems\Teksystems.csproj", "{5AEFD628-2FB9-4710-9EF1-F83D589F3CF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teksystems", "Teksystems\Teksystems.csproj", "{5AEFD628-2FB9-4710-9EF1-F83D589F3CF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teksystems.Tests", "Teksystems.Tests\Teksystems.Tests.csproj", "{F80CBFF0-BD3C-42CD-9E4D-9D08058BF0AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teksystems.Tests", "Teksystems.Tests\Teksystems.Tests.csproj", "{F80CBFF0-BD3C-42CD-9E4D-9D08058BF0AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teksystems.Core", "Teksystems.Core\Teksystems.Core.csproj", "{F37F4002-4AF6-4AFA-9E52-F60793080C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F80CBFF0-BD3C-42CD-9E4D-9D08058BF0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F80CBFF0-BD3C-42CD-9E4D-9D08058BF0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F80CBFF0-BD3C-42CD-9E4D-9D08058BF0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37F4002-4AF6-4AFA-9E52-F60793080C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37F4002-4AF6-4AFA-9E52-F60793080C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37F4002-4AF6-4AFA-9E52-F60793080C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37F4002-4AF6-4AFA-9E52-F60793080C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

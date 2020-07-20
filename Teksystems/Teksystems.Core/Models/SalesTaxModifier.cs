@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Teksystems.Models
+namespace Teksystems.Core.Models
 {
     [Flags]
     public enum SalesTaxModifier

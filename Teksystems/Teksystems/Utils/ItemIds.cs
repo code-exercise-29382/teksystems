@@ -15,8 +15,8 @@ namespace Teksystems.Utils
         public static readonly Guid Input2_ImportedBoxOfChocolate = Guid.NewGuid();
         public static readonly Guid Input2_ImportedBottleOfPerfume = Guid.NewGuid();
         
-        public static readonly Guid Input3_ImportedBottleOfPerfume = Guid.NewGuid();
         public static readonly Guid Input3_BottleOfPerfume = Guid.NewGuid();
+        public static readonly Guid Input3_ImportedBottleOfPerfume = Guid.NewGuid();
         public static readonly Guid Input3_HeadachePills = Guid.NewGuid();
         public static readonly Guid Input3_ImportedChocolates = Guid.NewGuid();
     }

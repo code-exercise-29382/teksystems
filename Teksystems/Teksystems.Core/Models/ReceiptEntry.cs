@@ -1,4 +1,4 @@
-﻿namespace Teksystems.Models
+﻿namespace Teksystems.Core.Models
 {
     public class ReceiptEntry
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Teksystems.Models;
+using Teksystems.Core.Models;
 
-namespace Teksystems.Services
+namespace Teksystems.Core.Services
 {
     public interface IReceiptPrinter
     {

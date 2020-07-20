@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Tracing;
 
-namespace Teksystems.Models
+namespace Teksystems.Core.Models
 {
     public class Item
     {

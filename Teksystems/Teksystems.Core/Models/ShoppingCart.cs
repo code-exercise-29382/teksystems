@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Teksystems.Models
+namespace Teksystems.Core.Models
 {
     public class ShoppingCart
     {
