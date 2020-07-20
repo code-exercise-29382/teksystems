@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Teksystems.Core.Models
 {
     public class ShoppingCart
     {
-        private readonly List<Guid> _items;
+        private readonly List<ShoppingCartItem> items;
 
         public ShoppingCart()
         {
-            this._items = new List<Guid>();
+            this.items = new List<ShoppingCartItem>();
         }
 
-        public void Add(Guid itemId)
+        public IReadOnlyList<ShoppingCartItem> Items => this.items.AsReadOnly();
+
+        public void Add(Guid itemId, int count)
         {
-            this._items.Add(itemId);
+            this.items.Add(new ShoppingCartItem(itemId, count));
         }
     }
 }

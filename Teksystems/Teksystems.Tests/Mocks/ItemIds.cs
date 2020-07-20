@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Teksystems.Utils
+namespace Teksystems.Tests.Mocks
 {
     /// <summary>
     /// This is a helper class specific for this exercise. Usually the item ID would be supplied from the system, 
@@ -14,7 +14,7 @@ namespace Teksystems.Utils
 
         public static readonly Guid Input2_ImportedBoxOfChocolate = Guid.NewGuid();
         public static readonly Guid Input2_ImportedBottleOfPerfume = Guid.NewGuid();
-        
+
         public static readonly Guid Input3_BottleOfPerfume = Guid.NewGuid();
         public static readonly Guid Input3_ImportedBottleOfPerfume = Guid.NewGuid();
         public static readonly Guid Input3_HeadachePills = Guid.NewGuid();
