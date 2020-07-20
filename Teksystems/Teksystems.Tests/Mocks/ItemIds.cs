@@ -19,5 +19,7 @@ namespace Teksystems.Tests.Mocks
         public static readonly Guid Input3_ImportedBottleOfPerfume = Guid.NewGuid();
         public static readonly Guid Input3_HeadachePills = Guid.NewGuid();
         public static readonly Guid Input3_ImportedChocolates = Guid.NewGuid();
+
+        public static readonly Guid FreeItem = Guid.NewGuid();
     }
 }

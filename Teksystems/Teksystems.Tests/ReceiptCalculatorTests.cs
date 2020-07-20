@@ -33,6 +33,8 @@ namespace Teksystems.Tests
                 yield return new object[] { ItemIds.Input3_HeadachePills, 9.75m };
                 yield return new object[] { ItemIds.Input3_ImportedBottleOfPerfume, 32.19m };
                 yield return new object[] { ItemIds.Input3_ImportedChocolates, 11.85m };
+
+                yield return new object[] { ItemIds.FreeItem, 0 };
             }
         }
 

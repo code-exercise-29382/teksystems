@@ -22,6 +22,8 @@ namespace Teksystems.Tests.Mocks.Services
             { ItemIds.Input3_HeadachePills, new Item("Packet of headache pills", 9.75m, SalesTaxModifier.ExemptFromBasicTax) },
             { ItemIds.Input3_BottleOfPerfume, new Item("Bottle of perfume", 18.99m) },
             { ItemIds.Input3_ImportedChocolates, new Item("Box of chocolates", 11.25m, SalesTaxModifier.Imported | SalesTaxModifier.ExemptFromBasicTax) },
+
+            { ItemIds.FreeItem, new Item("Free stuff", 0) }
         };
 
         public Task<Item> GetByIdAsync(Guid itemId)
