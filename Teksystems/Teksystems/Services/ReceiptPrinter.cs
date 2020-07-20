@@ -28,10 +28,10 @@ namespace Teksystems.Services
                         await writer.WriteAsync(" imported");
                     }
 
-                    await writer.WriteLineAsync($" {entry.Item.Name}: {entry.Total}");
+                    await writer.WriteLineAsync($" {entry.Item.Name}: {entry.Total:0.00}");
                 }
 
-                await writer.WriteLineAsync($"Sales Taxes: {receipt.Taxes} Total: {receipt.Total}");
+                await writer.WriteLineAsync($"Sales Taxes: {receipt.Taxes:0.00} Total: {receipt.Total:0.00}");
                 await writer.WriteLineAsync();
                 await writer.FlushAsync();
             }

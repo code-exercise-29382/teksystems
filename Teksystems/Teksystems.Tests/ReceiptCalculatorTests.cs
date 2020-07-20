@@ -11,7 +11,7 @@ namespace Teksystems.Tests
 {
     public class ReceiptCalculatorTests
     {
-        private ReceiptCalculator receiptCalculator;
+        private readonly ReceiptCalculator receiptCalculator;
 
         public ReceiptCalculatorTests()
         {

@@ -29,8 +29,8 @@ namespace Teksystems.Services
             foreach (var cartItem in cart.Items)
             {
                 var item = await this.itemsRepository.GetByIdAsync(cartItem.ItemId);
-                var costPerItem = await this.taxCalculator.CalculateTaxAsync(item, cartItem.Count);
-                var entry = new ReceiptEntry(item, cartItem.Count, item.Price * cartItem.Count, costPerItem * cartItem.Count);
+                var totalCost = await this.taxCalculator.CalculateTaxAsync(item, cartItem.Count);
+                var entry = new ReceiptEntry(item, cartItem.Count, item.Price * cartItem.Count, totalCost);
                 receiptEntries.Add(entry);
             }
 
