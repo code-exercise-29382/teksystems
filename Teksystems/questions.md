@@ -1,0 +1,18 @@
+# Do you know the SOLID principle? Please explain.
+The core of SOLID is to make code more understandable and more maintainable through design choices. In practice, it can be (over) simplified as "segregation of responsibilities". During implementation, its considered better to have many tiny objects that does 1 thing extremely well. If you need a data structure, its **only** a data structure, if you need a service to retrieve data from an API, its **only** job is to do that, etc. Then, through composition (often used with an IoC container), each tiny service can use other tiny services to do the overall task because those service implements a contract (an interface). It also means that each service can be tested or replaced independently of all other services as they only depend on a given contract. For instance, if the data source is changed from SQL to MongoDB, then you only need to swap the service accessing SQL to access MongoDB instead.
+
+# Name 3 Design Patterns you know? Please explain.
+- Event Sourcing
+Event sourcing is a different way to represent actions and data. The idea is that the only source of truth is a immutable, append-only store of all events that happened in the past. By replaying those events, we can compute the current state. State can only be modified by events, however, an event may modify multiple states. Often, this is combined with the denormalization of state, meaning that a single piece of information may be present in multiple states. This is in constrast to a normalized state, where information is stored only once and any other state requiring a piece of information is given a reference to the normalized state. Event sourcing also enables multiple applications (or microservices) to refer to the same source of truth for their purposes, allowing for completely decoupled services.
+- Iterator
+This is the pattern that enables the "yield" keyword in .NET. The idea is to only expose a way to access the next element without knowing how the internal storage works. .NET implements this pattern using a state machine when a method/property uses the "yield" keyword, as each iteration will call "MoveNext" and the state machine will then go to the next state, which is the next time "yield" was called.
+- Decorator
+Allows a wrapper on a given contract to do additional tasks without the contract caller or contact implementor knowing it was done. The wrapper implements the same contract and defers all execution to the wrapped instance, but may choose to do additional tasks if necessary. It can be very useful to implement non-functional requirements such as caching results for better performance or logging telemetry data. 
+
+# What is the difference between Unit Tests and Integration Tests? Please explain.
+Unit testing is to test a single service. Every dependency is mocked and the behavior of that service is the only thing tested.
+Integration tests combines different services to see if their integration together works as expected. Some services may be mocked (for instance, to remove external dependencies to a web service or a database), but the overall components are the one used in a production environment.
+System tests does not mock anything and tests the entire system. Those tests try to reflect as much as possible a "real" environment, using dedicated databases or test/staging environments in order to be as close to production as possible.
+
+# What have you used as a CI environment? Please explain.
+I've used TeamCity as a CI platform. I also know a bit about Azure DevOps as a CI/CD platform, but I don't know all its capabilities. I've mainly used TeamCity for CI and as a nightly integration/system test runner.
