@@ -7,6 +7,6 @@ namespace Teksystems.Core.Services
 {
     public interface IReceiptPrinter
     {
-        string Print(Receipt receipt);
+        void Print(Receipt receipt);
     }
 }

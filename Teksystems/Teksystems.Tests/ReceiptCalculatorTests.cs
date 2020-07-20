@@ -10,13 +10,11 @@ namespace Teksystems.Tests
 {
     public class ReceiptCalculatorTests
     {
-        private InMemoryItemsRepository itemsRepository;
         private ReceiptCalculator receiptCalculator;
 
         public ReceiptCalculatorTests()
         {
-            this.itemsRepository = new InMemoryItemsRepository();
-            this.receiptCalculator = new ReceiptCalculator(itemsRepository);
+            this.receiptCalculator = new ReceiptCalculator(new InMemoryItemsRepository(), new TaxCalculator(0.1m, 0.05m));
         }
 
         public static IEnumerable<object[]> IndividualItemsSampleData
