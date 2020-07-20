@@ -80,5 +80,11 @@ namespace Teksystems.Tests
             Assert.Equal(expectedTaxes, receipt.Taxes);
             Assert.Equal(expectedTotal, receipt.Total);
         }
+
+        [Fact]
+        public void ReceiptCalculator_WhenEmptyCart_Throws()
+        {
+            Assert.Throws<InvalidOperationException>(() => this.receiptCalculator.Calculate(new ShoppingCart()));
+        }
     }
 }

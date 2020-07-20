@@ -1,4 +1,5 @@
-﻿using Teksystems.Utils;
+﻿using System;
+using Teksystems.Utils;
 using Xunit;
 
 namespace Teksystems.Tests
@@ -25,6 +26,18 @@ namespace Teksystems.Tests
             var result = RoundHelper.RoundToNearest(value, roundTo);
 
             Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Round_WhenRoundingToZero_Throws()
+        {
+            Assert.Throws<InvalidOperationException>(() => RoundHelper.RoundToNearest(10, 0));
+        }
+
+        [Fact]
+        public void Round_WhenRoundingToNegative_Throws()
+        {
+            Assert.Throws<InvalidOperationException>(() => RoundHelper.RoundToNearest(10, -3));
         }
     }
 }

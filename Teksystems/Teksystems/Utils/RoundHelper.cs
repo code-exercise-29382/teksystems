@@ -11,9 +11,9 @@ namespace Teksystems.Utils
         /// </summary>
         public static decimal RoundToNearest(decimal value, decimal roundTarget)
         {
-            if(roundTarget == 0)
+            if(roundTarget <= 0)
             {
-                throw new DivideByZeroException("Cannot round to 0.");
+                throw new InvalidOperationException("Must round to a value greater than zero.");
             }
 
             return Math.Ceiling(value / roundTarget) * roundTarget;
