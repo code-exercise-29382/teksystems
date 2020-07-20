@@ -1,4 +1,5 @@
-﻿using Teksystems.Core.Models;
+﻿using System.Threading.Tasks;
+using Teksystems.Core.Models;
 using Teksystems.Core.Services;
 using Teksystems.Utils;
 
@@ -17,7 +18,7 @@ namespace Teksystems.Services
             this.importTax = importTax;
         }
 
-        public decimal CalculateTax(Item item, int count)
+        public Task<decimal> CalculateTaxAsync(Item item, int count)
         {
             var subtotal = item.Price * count;
             decimal tax = 0;
@@ -31,7 +32,7 @@ namespace Teksystems.Services
                 tax += RoundHelper.RoundToNearest(subtotal * this.importTax, TaxRoundsUpTo);
             }
 
-            return subtotal + tax;
+            return Task.FromResult(subtotal + tax);
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Teksystems.Core.Models;
 
 namespace Teksystems.Core.Services
 {
     public interface IItemsRepository
     {
-        Item GetById(Guid itemId);
+        Task<Item> GetByIdAsync(Guid itemId);
     }
 }

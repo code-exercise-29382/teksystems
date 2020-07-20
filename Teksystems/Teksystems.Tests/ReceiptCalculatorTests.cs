@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Teksystems.Core.Models;
 using Teksystems.Services;
 using Teksystems.Tests.Mocks;
@@ -61,30 +62,30 @@ namespace Teksystems.Tests
 
         [Theory]
         [MemberData(nameof(IndividualItemsSampleData))]
-        public void ReceiptCalcultor_WithSampleItems_CalculatesTaxesAndTotalCorrectly(Guid itemId, decimal expectedPrice)
+        public async Task ReceiptCalcultor_WithSampleItems_CalculatesTaxesAndTotalCorrectly(Guid itemId, decimal expectedPrice)
         {
             var cart = new ShoppingCart();
             cart.Add(itemId, 1);
 
-            var receipt = this.receiptCalculator.Calculate(cart);
+            var receipt = await this.receiptCalculator.CalculateAsync(cart);
 
             Assert.Equal(expectedPrice, receipt.Total);
         }
 
         [Theory]
         [MemberData(nameof(ShoppingCartSampleData))]
-        public void ReceiptCalcultor_WithSampleShoppingCartData_CalculatesTaxesAndTotalCorrectly(ShoppingCart cart, decimal expectedTaxes, decimal expectedTotal)
+        public async Task ReceiptCalcultor_WithSampleShoppingCartData_CalculatesTaxesAndTotalCorrectly(ShoppingCart cart, decimal expectedTaxes, decimal expectedTotal)
         {
-            var receipt = this.receiptCalculator.Calculate(cart);
+            var receipt = await this.receiptCalculator.CalculateAsync(cart);
 
             Assert.Equal(expectedTaxes, receipt.Taxes);
             Assert.Equal(expectedTotal, receipt.Total);
         }
 
         [Fact]
-        public void ReceiptCalculator_WhenEmptyCart_Throws()
+        public async Task ReceiptCalculator_WhenEmptyCart_Throws()
         {
-            Assert.Throws<InvalidOperationException>(() => this.receiptCalculator.Calculate(new ShoppingCart()));
+            await Assert.ThrowsAsync<InvalidOperationException>(() => this.receiptCalculator.CalculateAsync(new ShoppingCart()));
         }
     }
 }

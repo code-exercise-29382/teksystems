@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Teksystems.Core.Models;
 using Teksystems.Core.Services;
 
@@ -23,11 +24,11 @@ namespace Teksystems.Console.Services
             { ItemIds.Input3_ImportedChocolates, new Item("Box of chocolates", 11.25m, SalesTaxModifier.Imported | SalesTaxModifier.ExemptFromBasicTax) },
         };
 
-        public Item GetById(Guid itemId)
+        public Task<Item> GetByIdAsync(Guid itemId)
         {
             if (AllItems.TryGetValue(itemId, out var item))
             {
-                return item;
+                return Task.FromResult(item);
             }
 
             throw new InvalidOperationException("Item does not exist.");

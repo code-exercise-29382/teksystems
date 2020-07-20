@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Teksystems.Core.Models;
 using Teksystems.Core.Services;
 
@@ -17,7 +18,7 @@ namespace Teksystems.Services
             this.taxCalculator = taxCalculator;
         }
 
-        public Receipt Calculate(ShoppingCart cart)
+        public async Task<Receipt> CalculateAsync(ShoppingCart cart)
         {
             if(cart.Items.Count == 0)
             {
@@ -27,8 +28,8 @@ namespace Teksystems.Services
             var receiptEntries = new List<ReceiptEntry>(cart.Items.Count);
             foreach (var cartItem in cart.Items)
             {
-                var item = this.itemsRepository.GetById(cartItem.ItemId);
-                var costPerItem = this.taxCalculator.CalculateTax(item, cartItem.Count);
+                var item = await this.itemsRepository.GetByIdAsync(cartItem.ItemId);
+                var costPerItem = await this.taxCalculator.CalculateTaxAsync(item, cartItem.Count);
                 var entry = new ReceiptEntry(item, cartItem.Count, item.Price * cartItem.Count, costPerItem * cartItem.Count);
                 receiptEntries.Add(entry);
             }

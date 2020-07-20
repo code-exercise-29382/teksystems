@@ -1,9 +1,10 @@
-﻿using Teksystems.Core.Models;
+﻿using System.Threading.Tasks;
+using Teksystems.Core.Models;
 
 namespace Teksystems.Core.Services
 {
     public interface ITaxCalculator
     {
-        decimal CalculateTax(Item item, int count);
+        Task<decimal> CalculateTaxAsync(Item item, int count);
     }
 }

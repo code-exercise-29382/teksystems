@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Teksystems.Console.Services;
 using Teksystems.Core.Models;
 using Teksystems.Services;
@@ -7,15 +8,15 @@ namespace Teksystems.Console
 {
     class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var printer = new ConsoleReceiptPrinter();
             var calculator = new ReceiptCalculator(new InMemoryItemsRepository(), new TaxCalculator(0.10m, 0.05m));
 
             foreach (var cart in CreateSampleShoppingCarts())
             {
-                var receipt = calculator.Calculate(cart);
-                printer.Print(receipt);
+                var receipt = await calculator.CalculateAsync(cart);
+                await printer.PrintAsync(receipt);
             }
         }
 

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 using Teksystems.Core.Models;
 
 namespace Teksystems.Core.Services
 {
     public interface IReceiptPrinter
     {
-        void Print(Receipt receipt);
+        Task PrintAsync(Receipt receipt);
     }
 }
